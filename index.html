@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fresh Sabzi Store – ताज़ी सब्जियां, घर तक</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6faf3;--card:#fff;--ink:#17301d;--mute:#5d7262;--g:#1f8a3b;--g2:#0f5c26;--lime:#d9f0b8;--sun:#f4a81d;--line:#e0ebd9;--sh:0 2px 10px rgba(23,48,29,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a12;--card:#17251a;--ink:#e8f3e6;--mute:#9db5a2;--g:#4cc26a;--g2:#2c8a45;--lime:#22361f;--line:#26402b;--sh:0 2px 10px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0f1a12;--card:#17251a;--ink:#e8f3e6;--mute:#9db5a2;--g:#4cc26a;--g2:#2c8a45;--lime:#22361f;--line:#26402b;--sh:0 2px 10px rgba(0,0,0,.4)}
+*{box-sizing:border-box}html{height:100%;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Mukta,system-ui,sans-serif;padding-bottom:140px}
+h1,h2,h3{font-family:"Baloo 2",Mukta,sans-serif;margin:0;line-height:1.15}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font:800 20px "Baloo 2";color:var(--g)}
+.loc{display:flex;align-items:center;gap:6px;background:var(--card);box-shadow:var(--sh);border-radius:14px;padding:8px 12px;font-weight:600;font-size:14px;min-height:44px;text-align:left}
+.loc small{display:block;color:var(--mute);font-weight:400;font-size:12px}
+.search{margin-top:10px;position:relative}
+.search input{width:100%;height:50px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:0 16px 0 46px;font:inherit;font-size:16px}
+.search input:focus{border-color:var(--g);outline:0}
+.search span{position:absolute;left:15px;top:12px;font-size:20px}
+.hero{margin:16px 0;border-radius:26px;background:linear-gradient(135deg,var(--g2),var(--g));color:#fff;padding:26px 22px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(28px,7vw,44px);max-width:14ch}
+.hero p{margin:10px 0 18px;max-width:30ch;opacity:.95}
+.hero .big{position:absolute;right:-8px;bottom:-14px;font-size:120px;line-height:1;opacity:.95;transform:rotate(-8deg)}
+.btn{background:var(--sun);color:#2b1d00;font-weight:700;border-radius:14px;padding:0 20px;min-height:48px}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cat{background:var(--card);box-shadow:var(--sh);border-radius:18px;padding:12px 4px;text-align:center;font-size:13px;font-weight:600;line-height:1.25;border:2px solid transparent;min-height:84px}
+.cat b{display:block;font-size:30px;font-weight:400}
+.cat[aria-pressed=true]{border-color:var(--g);background:var(--lime)}
+section{margin-top:28px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.sh h2{font-size:22px}.sh span{color:var(--mute);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(4,1fr)}.cats{grid-template-columns:repeat(8,1fr)}}
+.card{background:var(--card);border-radius:20px;box-shadow:var(--sh);padding:12px;display:flex;flex-direction:column}
+.pic{background:var(--lime);border-radius:14px;height:92px;display:grid;place-items:center;font-size:52px;position:relative}
+.tag{position:absolute;top:6px;left:6px;background:var(--sun);color:#2b1d00;font:700 11px Mukta;padding:2px 8px;border-radius:99px}
+.card h3{font-size:17px;margin-top:8px}.card small{color:var(--mute)}
+.pr{margin:6px 0 10px;font-weight:700;font-size:17px}.pr s{color:var(--mute);font-weight:400;font-size:13px;margin-left:4px}.pr em{font-style:normal;color:var(--mute);font-weight:400;font-size:13px}
+.add{margin-top:auto;width:100%;min-height:44px;border-radius:12px;background:var(--card);border:2px solid var(--g);color:var(--g);font-weight:700}
+.qty{margin-top:auto;display:flex;align-items:center;justify-content:space-between;background:var(--g);color:#fff;border-radius:12px;min-height:44px}
+.qty button{background:none;color:#fff;font-size:22px;width:48px;height:44px}
+.rule{background:var(--lime);border-radius:20px;padding:16px;display:grid;gap:10px}
+.rule p{margin:0}.rule b{color:var(--g)}
+.empty{text-align:center;color:var(--mute);padding:30px 0;grid-column:1/-1}
+.note{font-size:12px;color:var(--mute);margin-top:18px;text-align:center}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,var(--bg) 35%)}
+.cartbtn{max-width:980px;margin:0 auto;width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--g);color:#fff;border-radius:18px;padding:0 18px;min-height:58px;font-weight:700;box-shadow:0 6px 18px rgba(15,92,38,.35)}
+.cartbtn.off{background:var(--card);color:var(--mute);box-shadow:var(--sh)}
+.wa{position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:31;background:#25d366;color:#fff;border-radius:99px;min-height:48px;padding:0 16px;display:flex;align-items:center;gap:6px;font-weight:700;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.sheet{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.45);display:none;align-items:flex-end}
+.sheet.on{display:flex}
+.panel{background:var(--bg);width:100%;max-width:560px;margin:0 auto;border-radius:26px 26px 0 0;max-height:86%;overflow:auto;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.panel{animation:none}}
+.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row .e{font-size:32px}.row div:nth-child(2){flex:1}
+.qty.sm{min-width:112px}
+.sum{display:grid;gap:6px;margin:14px 0}.sum div{display:flex;justify-content:space-between}
+.sum .t{font:800 20px "Baloo 2"}
+.hint{background:var(--lime);border-radius:12px;padding:10px 12px;font-size:14px}
+.x{float:right;background:var(--card);width:44px;height:44px;border-radius:50%;font-size:20px}
+.lang{height:44px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Mukta,sans-serif;padding:0 10px}
+.loc{margin-top:10px;width:100%}.loc>span{flex:1}
+.card h3,.card small,.cat,.row b{overflow-wrap:anywhere}
+.hero p{max-width:34ch}
+footer{margin-top:24px;text-align:center;font-size:14px;color:var(--mute)}footer a{color:var(--g);font-weight:700}
+.btn.wab{background:#25d366;color:#fff;margin-top:8px;display:block;width:100%;text-align:center;text-decoration:none;line-height:48px}
+.fl{display:block;margin:10px 0}.fl>span{display:block;font-weight:600;margin-bottom:4px}
+.fl input:not([type=radio]),.fl textarea{width:100%;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;padding:10px 12px;min-height:48px}
+.pay{display:flex;align-items:center;gap:8px;min-height:44px}.pay.dis{opacity:.55}
+#err{color:#c0392b;font-weight:600;min-height:22px;margin:6px 0}
+.closedb{background:#fde8c8;color:#5a3500;text-align:center;padding:10px 16px;font-weight:700}
+.big2{font:800 28px "Baloo 2";color:var(--g)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="top"><div class="brand">🥬 Fresh Sabzi Store</div>
+  <select class="lang" id="lang" aria-label="Language / भाषा"><option value="hi">🇮🇳 हिन्दी</option><option value="hinglish">🔤 Hinglish</option><option value="en">🇬🇧 English</option></select></div>
+  <button class="loc" id="loc" data-aria="locAria">📍<span><span data-i="locName"></span><small data-i="locSub"></small></span></button>
+  <label class="search"><span aria-hidden="true">🔍</span><input id="q" type="search" data-ph="searchPh" data-aria="searchPh"></label>
+</div></header>
+<div class="closedb" id="closed" hidden data-i="closedMsg"></div>
+<main class="wrap">
+  <div class="hero">
+    <h1 data-i="heroH"></h1><p data-i="heroP"></p>
+    <button class="btn" id="heroBtn" data-i="heroBtn"></button>
+    <div class="big" aria-hidden="true">🍅</div>
+  </div>
+  <section><div class="sh"><h2 data-i="cats"></h2></div><div class="cats" id="catGrid"></div></section>
+  <section id="deals"><div class="sh"><h2 data-i="deals"></h2><span data-i="dealsSub"></span></div><div class="grid" id="gDeals"></div></section>
+  <section id="best"><div class="sh"><h2 data-i="best"></h2><span data-i="bestSub"></span></div><div class="grid" id="gBest"></div></section>
+  <section id="new"><div class="sh"><h2 data-i="newly"></h2></div><div class="grid" id="gNew"></div></section>
+  <section id="all"><div class="sh"><h2 data-i="all"></h2><span id="cnt"></span></div><div class="grid" id="gAll"></div></section>
+  <section><div class="sh"><h2 data-i="rules"></h2></div>
+    <div class="rule"><p>✅ <span data-i="rFree"></span></p><p>🛵 <span data-i="rFee"></span></p><p>📍 <span data-i="rRadius"></span></p></div>
+  </section>
+  <p class="note" data-i="note"></p>
+  <footer><b data-i="contact"></b>: <a href="tel:+918957400266">+91 89574 00266</a></footer>
+</main>
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+<div class="bar"><button class="cartbtn off" id="cartBtn"><span id="cl"></span><span id="ct"></span></button></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true">
+  <div class="panel"><button class="x" id="close" data-aria="close">✕</button><h2 data-i="cartTitle"></h2><div id="items"></div>
+  <div class="hint" id="hint"></div>
+  <div class="sum"><div><span data-i="subtotal"></span><span id="sub"></span></div><div><span data-i="delivery"></span><span id="del"></span></div><div class="t"><span data-i="total"></span><span id="tot"></span></div></div>
+  <button class="btn" style="width:100%" id="go" data-i="checkout"></button>
+  <div id="chk" style="display:none">
+   <label class="fl"><span data-i="fName"></span><input id="fn" autocomplete="name" maxlength="80"></label>
+   <label class="fl"><span data-i="fPhone"></span><input id="fp" type="tel" inputmode="numeric" autocomplete="tel" maxlength="14"></label>
+   <label class="fl"><span data-i="fAddr"></span><textarea id="fa" rows="3" maxlength="300"></textarea></label>
+   <div class="fl"><span data-i="fPay"></span><label class="pay"><input type="radio" name="pm" checked><span data-i="payCod"></span></label><label class="pay dis"><input type="radio" name="pm" disabled><span data-i="payUpi"></span></label></div>
+   <p class="note" data-i="rRadius"></p><div id="err" role="alert"></div>
+   <button class="btn" style="width:100%" id="place" data-i="placeBtn"></button></div>
+  <a class="btn wab" id="waCart" href="#" target="_blank" rel="noopener" data-i="waOrder"></a></div>
+</div>
+<div class="sheet" id="ok" role="dialog" aria-modal="true"><div class="panel" style="text-align:center"><div style="font-size:56px">✅</div><h2 data-i="orderPlaced"></h2><p data-i="success"></p>
+<p><span data-i="okCode"></span><div class="big2" id="okCode"></div></p><p><span data-i="total"></span>: <b id="okTot"></b></p><p class="note" data-i="okNote"></p>
+<button class="btn" style="width:100%" id="okBtn" data-i="back"></button></div></div>
+<script>
+var LANGS=["hi","hinglish","en"],WA="918957400266",RADIUS_FREE_MIN=100,FEE=20;
+var D={
+hi:{locName:"सतुआभार चौराहा, खजनी",locSub:"3 किमी तक डिलीवरी",locAria:"डिलीवरी का पता चुनें",searchPh:"सब्ज़ियाँ खोजें… जैसे आलू, टमाटर",heroH:"ताज़ी सब्ज़ियाँ, सीधे आपके घर",heroP:"खजनी की ताज़ी सब्ज़ियाँ अब आपके घर तक।",heroBtn:"अभी ऑर्डर करें",cats:"श्रेणियाँ",deals:"आज के ऑफर",dealsSub:"एडमिन से सेट होंगे",best:"सबसे ज़्यादा बिकने वाली",bestSub:"बिक्री डेटा से",newly:"नई आई सब्ज़ियाँ",all:"सभी सब्ज़ियाँ",nCount:"{n} सब्ज़ियाँ",rules:"डिलीवरी के नियम",rFree:"₹100 या उससे ज़्यादा की ख़रीदारी पर मुफ्त डिलीवरी!",rFee:"₹100 से कम के ऑर्डर पर ₹20 डिलीवरी शुल्क",rRadius:"घर तक डिलीवरी सिर्फ़ दुकान से 3 किमी के अंदर",note:"दिखाए गए नाम और दाम सिर्फ़ नमूना हैं। असली दाम और स्टॉक एडमिन डैशबोर्ड से आएंगे।",add:"जोड़ें",viewCart:"{n} आइटम · कार्ट देखें",cartEmpty:"कार्ट खाली है",cartTitle:"आपका कार्ट",cartEmptyMsg:"कार्ट खाली है। ऊपर से सब्ज़ी जोड़ें।",subtotal:"कुल कीमत",delivery:"डिलीवरी शुल्क",free:"मुफ्त डिलीवरी",total:"कुल भुगतान",checkout:"ऑर्डर करें",waOrder:"WhatsApp पर ऑर्डर करें",hintFree:"🎉 आपकी डिलीवरी मुफ्त है",hintMore:"मुफ्त डिलीवरी के लिए ₹{n} की और सब्ज़ियाँ जोड़ें।",noRes:"कोई सब्ज़ी नहीं मिली। दूसरा नाम खोजें या श्रेणी बदलें।",off:"{n}% कम",close:"बंद करें",less:"कम करें",more:"बढ़ाएं",soon:"ऑर्डर करना अगले चरण में जुड़ेगा। अभी WhatsApp से ऑर्डर करें।",locAlert:"डिलीवरी क्षेत्र की जाँच अगले चरण में जुड़ेगी।",contact:"संपर्क करें",orderPlaced:"ऑर्डर हो गया",success:"आपका ऑर्डर सफलतापूर्वक हो गया!",u_kg:"किलो",u_g500:"500 ग्राम",u_pc:"पीस",u_g100:"100 ग्राम",u_bunch:"गुच्छा",waHello:"नमस्ते! मुझे Fresh Sabzi Store से सब्ज़ियाँ ऑर्डर करनी हैं।",waAddr:"डिलीवरी का पता:"},
+hinglish:{locName:"Satuabhar Chauraha, Khajni",locSub:"3 KM tak delivery",locAria:"Delivery ka pata chunein",searchPh:"Sabzi khojein… jaise aloo, tamatar",heroH:"Tazi sabziyan, seedhe aapke ghar",heroP:"Khajni ki tazi sabziyan ab aapke ghar tak.",heroBtn:"Abhi order karein",cats:"Categories dekhein",deals:"Aaj ke offers",dealsSub:"Admin se set honge",best:"Sabse zyada bikne wali",bestSub:"Sales data se",newly:"Nayi aayi sabziyan",all:"Sabhi sabziyan",nCount:"{n} sabziyan",rules:"Delivery ke niyam",rFree:"₹100 ya usse zyada ki shopping par delivery free!",rFee:"₹100 se kam ke order par ₹20 delivery charge",rRadius:"Ghar tak delivery sirf shop se 3 KM ke andar",note:"Dikhaye gaye naam aur daam sirf sample hain. Asli daam aur stock admin dashboard se aayenge.",add:"Cart mein jodein",viewCart:"{n} item · Cart dekhein",cartEmpty:"Cart khali hai",cartTitle:"Aapka cart",cartEmptyMsg:"Cart khali hai. Upar se sabzi jodein.",subtotal:"Kul keemat",delivery:"Delivery charge",free:"Free delivery",total:"Kul payment",checkout:"Order karein",waOrder:"WhatsApp par order karein",hintFree:"🎉 Aapki delivery free hai",hintMore:"Free delivery ke liye ₹{n} aur ki sabziyan jodein.",noRes:"Koi sabzi nahi mili. Dusra naam khojein ya category badlein.",off:"{n}% kam",close:"Band karein",less:"Kam karein",more:"Badhayein",soon:"Order karna agle step mein judega. Abhi WhatsApp par order karein.",locAlert:"Delivery area ki jaanch agle step mein judegi.",contact:"Humse sampark karein",orderPlaced:"Order place ho gaya",success:"Aapka order successfully place ho gaya!",u_kg:"kilo",u_g500:"500 gram",u_pc:"piece",u_g100:"100 gram",u_bunch:"gucchha",waHello:"Namaste! Mujhe Fresh Sabzi Store se sabziyan order karni hain.",waAddr:"Delivery ka pata:"},
+en:{locName:"Satuabhar Chauraha, Khajni",locSub:"Delivery within 3 km",locAria:"Choose delivery address",searchPh:"Search vegetables… e.g. potato, tomato",heroH:"Fresh Vegetables, Delivered to Your Door",heroP:"Fresh vegetables from Khajni, delivered to your home.",heroBtn:"Order now",cats:"Categories",deals:"Today's offers",dealsSub:"Set by the shop owner",best:"Best sellers",bestSub:"From sales data",newly:"Recently added",all:"All vegetables",nCount:"{n} vegetables",rules:"Delivery rules",rFree:"Free delivery on orders of ₹100 or more!",rFee:"₹20 delivery charge on orders below ₹100",rRadius:"Home delivery only within 3 km of the shop",note:"Names and prices shown are samples. Real prices and stock will come from the admin dashboard.",add:"Add to Cart",viewCart:"{n} items · View Cart",cartEmpty:"Your cart is empty",cartTitle:"Your cart",cartEmptyMsg:"Your cart is empty. Add vegetables above.",subtotal:"Subtotal",delivery:"Delivery Charge",free:"Free Delivery",total:"Total",checkout:"Checkout",waOrder:"Order on WhatsApp",hintFree:"🎉 You get free delivery",hintMore:"Add ₹{n} more for free delivery.",noRes:"No vegetables found. Try another name or category.",off:"{n}% off",close:"Close",less:"Decrease",more:"Increase",soon:"Checkout arrives in a later step. For now, order on WhatsApp.",locAlert:"Delivery-area check arrives in a later step.",contact:"Contact Us",orderPlaced:"Order Placed",success:"Your order has been placed successfully!",u_kg:"kg",u_g500:"500 g",u_pc:"piece",u_g100:"100 g",u_bunch:"bunch",waHello:"Hello! I would like to order vegetables from Fresh Sabzi Store.",waAddr:"Delivery address:"}
+};
+var CATS=[["aloo",["आलू और प्याज","Aloo aur Pyaaz","Potato & Onion"],"🥔"],["tamatar",["टमाटर","Tamatar","Tomato"],"🍅"],["hari",["हरी सब्ज़ियाँ","Hari Sabziyan","Green Vegetables"],"🥒"],["patte",["पत्तेदार सब्ज़ियाँ","Patte wali Sabziyan","Leafy Greens"],"🥬"],["mausmi",["मौसमी सब्ज़ियाँ","Mausmi Sabziyan","Seasonal Vegetables"],"🎃"],["mirch",["मिर्च और अदरक","Mirch aur Adrak","Chili & Ginger"],"🌶️"],["lahsun",["लहसुन","Lahsun","Garlic"],"🧄"],["other",["अन्य सब्ज़ियाँ","Anya Sabziyan","Other Vegetables"],"🥕"]];
+// SAMPLE DATA – names are [Hindi, Hinglish, English]; replaced by database later
+var P=[
+{id:1,n:["आलू","Aloo","Potato"],e:"🥔",p:25,u:"kg",c:"aloo",best:1},
+{id:2,n:["प्याज","Pyaaz","Onion"],e:"🧅",p:30,u:"kg",c:"aloo",best:1},
+{id:3,n:["टमाटर","Tamatar","Tomato"],e:"🍅",p:32,old:40,u:"kg",c:"tamatar",deal:1,best:1},
+{id:4,n:["लौकी","Lauki","Bottle Gourd"],e:"🥒",p:20,u:"pc",c:"hari",nw:1},
+{id:5,n:["भिंडी","Bhindi","Okra"],e:"🥬",p:40,u:"g500",c:"hari",best:1},
+{id:6,n:["पालक","Palak","Spinach"],e:"🥬",p:15,u:"bunch",c:"patte",nw:1},
+{id:7,n:["बैंगन","Baingan","Eggplant"],e:"🍆",p:28,old:34,u:"kg",c:"hari",deal:1},
+{id:8,n:["खीरा","Kheera","Cucumber"],e:"🥒",p:24,u:"kg",c:"hari",nw:1},
+{id:9,n:["कद्दू","Kaddu","Pumpkin"],e:"🎃",p:22,u:"kg",c:"mausmi"},
+{id:10,n:["हरी मिर्च","Hari mirch","Green Chili"],e:"🌶️",p:12,u:"g100",c:"mirch"},
+{id:11,n:["अदरक","Adrak","Ginger"],e:"🫚",p:20,u:"g100",c:"mirch",nw:1},
+{id:12,n:["लहसुन","Lahsun","Garlic"],e:"🧄",p:25,u:"g100",c:"lahsun"},
+{id:13,n:["गाजर","Gajar","Carrot"],e:"🥕",p:35,u:"kg",c:"other",best:1}
+];
+var SB="https://fpoqgwhoqkfhrpzavyjy.supabase.co",KEY="sb_publishable_cGEEcbtVvBONIPYphQ_G0w_Qd7ZoWJS";
+var storeOpen=true,loadErr=false,chkOpen=false;
+Object.assign(D.hi,{fName:"आपका नाम",fPhone:"मोबाइल नंबर",fAddr:"डिलीवरी का पता",fPay:"भुगतान का तरीका",payCod:"डिलीवरी पर नकद (Cash on Delivery)",payUpi:"UPI (जल्द आ रहा है)",placeBtn:"ऑर्डर पक्का करें",placing:"ऑर्डर हो रहा है…",errName:"कृपया अपना नाम लिखें।",errPhone:"सही 10 अंकों का मोबाइल नंबर लिखें।",errAddr:"पूरा पता लिखें (मोहल्ला, गली, लैंडमार्क)।",errClosed:"दुकान अभी बंद है। कृपया बाद में ऑर्डर करें।",errStock:"कोई सब्ज़ी अभी स्टॉक में नहीं है। कार्ट जाँचें।",errGeneric:"ऑर्डर नहीं हो पाया। इंटरनेट जाँचें और दोबारा कोशिश करें।",errLoad:"सब्ज़ियाँ नहीं आ पाईं। इंटरनेट जाँचकर पेज दोबारा खोलें।",out:"स्टॉक में नहीं",closedMsg:"दुकान अभी बंद है। अभी ऑर्डर नहीं हो सकता।",okCode:"आपका ऑर्डर कोड",okNote:"यह कोड संभालकर रखें।",back:"खरीदारी जारी रखें"});
+Object.assign(D.hinglish,{fName:"Aapka naam",fPhone:"Mobile number",fAddr:"Delivery ka pata",fPay:"Payment ka tareeka",payCod:"Delivery par cash (Cash on Delivery)",payUpi:"UPI (jaldi aa raha hai)",placeBtn:"Order pakka karein",placing:"Order ho raha hai…",errName:"Kripya apna naam likhein.",errPhone:"Sahi 10 digit ka mobile number likhein.",errAddr:"Poora pata likhein (mohalla, gali, landmark).",errClosed:"Dukaan abhi band hai. Baad mein order karein.",errStock:"Koi sabzi abhi stock mein nahi hai. Cart check karein.",errGeneric:"Order nahi ho paya. Internet check karke dobara try karein.",errLoad:"Sabziyan nahi aa payi. Internet check karke page dobara kholein.",out:"Stock mein nahi",closedMsg:"Dukaan abhi band hai. Abhi order nahi ho sakta.",okCode:"Aapka order code",okNote:"Yeh code sambhal kar rakhein.",back:"Shopping jaari rakhein"});
+Object.assign(D.en,{fName:"Your name",fPhone:"Mobile number",fAddr:"Delivery Address",fPay:"Payment method",payCod:"Cash on Delivery",payUpi:"UPI (coming soon)",placeBtn:"Place order",placing:"Placing order…",errName:"Please enter your name.",errPhone:"Enter a valid 10-digit mobile number.",errAddr:"Enter your full address (area, street, landmark).",errClosed:"The shop is closed right now. Please order later.",errStock:"An item is out of stock. Please check your cart.",errGeneric:"Could not place the order. Check your internet and try again.",errLoad:"Could not load vegetables. Check your internet and reopen the page.",out:"Out of stock",closedMsg:"The shop is closed right now. Orders are paused.",okCode:"Your order code",okNote:"Please keep this code safe.",back:"Continue shopping"});
+var P0=P;P=[];var lang="hi",cart={},cat="",term="";
+try{var s=localStorage.getItem("fsl");if(LANGS.indexOf(s)>-1)lang=s;cart=JSON.parse(localStorage.getItem("fsc")||"{}")}catch(e){}
+function $(i){return document.getElementById(i)}
+function L(){return LANGS.indexOf(lang)}
+function t(k,v){var s=(D[lang][k]!=null?D[lang][k]:D.en[k])||k;return v!=null?s.replace("{n}",v):s}
+function inr(n){return "₹"+n}
+function save(){try{localStorage.setItem("fsc",JSON.stringify(cart))}catch(e){}}
+function nm(p){return p.n[L()]}
+function alt(p){return p.n[lang==="hi"?1:0]}
+function card(p){
+  var q=cart[p.id]||0,tag=p.old?'<span class="tag">'+t("off",Math.round((1-p.p/p.old)*100))+'</span>':"";
+  var ctl=p.out?'<button class="add" disabled style="opacity:.5">'+t("out")+'</button>':q?'<div class="qty"><button aria-label="'+t("less")+'" onclick="chg('+p.id+',-1)">−</button><b>'+q+'</b><button aria-label="'+t("more")+'" onclick="chg('+p.id+',1)">+</button></div>':'<button class="add" onclick="chg('+p.id+',1)">'+t("add")+'</button>';
+  return '<div class="card"><div class="pic">'+(p.img?'<img src="'+p.img.replace(/"/g,"")+'" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:14px">':p.e)+tag+'</div><h3>'+nm(p)+'</h3><small>'+alt(p)+'</small><div class="pr">'+inr(p.p)+(p.old?'<s>'+inr(p.old)+'</s>':'')+' <em>/ '+t("u_"+p.u)+'</em></div>'+ctl+'</div>';
+}
+function fill(id,list,msg){$(id).innerHTML=list.length?list.map(card).join(""):'<div class="empty">'+(msg||"")+'</div>'}
+function match(p){return (!cat||p.c===cat)&&(!term||(p.n.join(" ")).toLowerCase().indexOf(term)>-1)}
+function totals(){var s=0,n=0;P.forEach(function(p){var q=cart[p.id]||0;s+=q*p.p;n+=q});return{s:s,n:n,d:n?(s>=RADIUS_FREE_MIN?0:FEE):0}}
+function waMsg(full){
+  var t0=totals(),m=t("waHello");
+  if(full&&t0.n){m+="\n\n"+P.filter(function(p){return cart[p.id]}).map(function(p){return "• "+nm(p)+" × "+cart[p.id]+" ("+t("u_"+p.u)+") = "+inr(cart[p.id]*p.p)}).join("\n");
+    m+="\n\n"+t("subtotal")+": "+inr(t0.s)+"\n"+t("delivery")+": "+(t0.d?inr(t0.d):t("free"))+"\n"+t("total")+": "+inr(t0.s+t0.d)+"\n\n"+t("waAddr")}
+  return "https://wa.me/"+WA+"?text="+encodeURIComponent(m);
+}
+function money(){
+  var x=totals(),b=$("cartBtn");
+  b.className="cartbtn"+(x.n?"":" off");
+  $("cl").textContent=x.n?t("viewCart",x.n):t("cartEmpty");
+  $("ct").textContent=x.n?inr(x.s+x.d):"";
+  $("sub").textContent=inr(x.s);$("del").textContent=x.d?inr(x.d):t("free");$("tot").textContent=inr(x.s+x.d);
+  $("hint").textContent=x.s>=RADIUS_FREE_MIN?t("hintFree"):t("hintMore",RADIUS_FREE_MIN-x.s);
+  $("items").innerHTML=x.n?P.filter(function(p){return cart[p.id]}).map(function(p){var q=cart[p.id];return '<div class="row"><div class="e">'+p.e+'</div><div><b>'+nm(p)+'</b><br><small>'+inr(p.p)+' / '+t("u_"+p.u)+' · '+inr(p.p*q)+'</small></div><div class="qty sm"><button aria-label="'+t("less")+'" onclick="chg('+p.id+',-1)">−</button><b>'+q+'</b><button aria-label="'+t("more")+'" onclick="chg('+p.id+',1)">+</button></div></div>'}).join(""):'<div class="empty">'+t("cartEmptyMsg")+'</div>';
+  $("waCart").href=waMsg(true);$("waFloat").href=waMsg(false);
+  $("go").style.display=(x.n&&storeOpen&&!chkOpen)?"":"none";$("chk").style.display=(x.n&&storeOpen&&chkOpen)?"block":"none";$("closed").hidden=storeOpen;$("waCart").style.display=x.n?"":"none";$("hint").style.display=x.n?"":"none";
+}
+function render(){
+  document.documentElement.lang=lang==="en"?"en":"hi";
+  document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=t(e.dataset.i)});
+  document.querySelectorAll("[data-ph]").forEach(function(e){e.placeholder=t(e.dataset.ph)});
+  document.querySelectorAll("[data-aria]").forEach(function(e){e.setAttribute("aria-label",t(e.dataset.aria))});
+  $("catGrid").innerHTML=CATS.map(function(c){return '<button class="cat" aria-pressed="'+(cat===c[0])+'" data-c="'+c[0]+'"><b>'+c[2]+'</b>'+c[1][L()]+'</button>'}).join("");
+  var f=P.filter(match),br=cat||term;
+  $("deals").hidden=$("best").hidden=$("new").hidden=!!br;
+  fill("gDeals",P.filter(function(p){return p.deal}));
+  fill("gBest",P.filter(function(p){return p.best||p.feat}).slice(0,4));
+  fill("gNew",P.filter(function(p){return p.nw}));
+  fill("gAll",f,loadErr?t("errLoad"):t("noRes"));
+  $("cnt").textContent=t("nCount",f.length);
+  money();
+}
+function chg(id,d){cart[id]=Math.max(0,(cart[id]||0)+d);if(!cart[id])delete cart[id];save();render()}
+$("lang").value=lang;
+$("lang").onchange=function(){lang=this.value;try{localStorage.setItem("fsl",lang)}catch(e){}render()};
+$("catGrid").onclick=function(e){var b=e.target.closest(".cat");if(!b)return;cat=cat===b.dataset.c?"":b.dataset.c;render();$("all").scrollIntoView({behavior:"smooth"})};
+$("q").oninput=function(){term=this.value.trim().toLowerCase();render()};
+$("heroBtn").onclick=function(){$("all").scrollIntoView({behavior:"smooth"})};
+$("cartBtn").onclick=function(){$("sheet").classList.add("on")};
+$("close").onclick=function(){$("sheet").classList.remove("on")};
+$("sheet").onclick=function(e){if(e.target===this)this.classList.remove("on")};
+$("go").onclick=function(){chkOpen=true;money()};
+function errBox(m){$("err").textContent=m;return 0}
+function sb(path,body){return fetch(SB+path,{method:body?"POST":"GET",headers:{apikey:KEY,Authorization:"Bearer "+KEY,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw j;return j})})}
+function load(){Promise.all([sb("/rest/v1/products?select=*&order=id"),sb("/rest/v1/store_settings?select=*")]).then(function(a){loadErr=false;P=a[0].map(function(r){return{id:r.id,n:[r.name_hi,r.name_hn,r.name_en],e:r.emoji,p:+r.price,old:r.old_price?+r.old_price:0,u:r.unit,c:r.category,deal:r.is_deal,best:r.is_best,nw:r.is_new,img:r.image_url,feat:r.is_featured,out:!r.in_stock||r.stock_qty<=0}});var s=a[1][0];if(s){RADIUS_FREE_MIN=+s.free_delivery_min;FEE=+s.delivery_fee;storeOpen=s.store_open}render()}).catch(function(){loadErr=true;render()})}
+$("place").onclick=function(){
+  errBox("");var name=$("fn").value.trim(),ph=$("fp").value.replace(/\D/g,"").slice(-10),ad=$("fa").value.trim();
+  if(name.length<2)return errBox(t("errName"));
+  if(!/^[6-9]\d{9}$/.test(ph))return errBox(t("errPhone"));
+  if(ad.length<10)return errBox(t("errAddr"));
+  var items=P.filter(function(p){return cart[p.id]}).map(function(p){return{id:p.id,qty:cart[p.id]}});
+  $("place").disabled=true;$("place").textContent=t("placing");
+  sb("/rest/v1/rpc/place_order",{p_name:name,p_phone:ph,p_address:ad,p_payment:"cod",p_items:items}).then(function(r){
+    cart={};save();chkOpen=false;$("sheet").classList.remove("on");$("okCode").textContent=r.order_code;$("okTot").textContent=inr(r.total);$("ok").classList.add("on");load();
+  }).catch(function(e){var m=(e&&e.message)||"";errBox(m.indexOf("STORE_CLOSED")>-1?t("errClosed"):m.indexOf("OUT_OF_STOCK")>-1?t("errStock"):m.indexOf("BAD_PHONE")>-1?t("errPhone"):m.indexOf("BAD_ADDRESS")>-1?t("errAddr"):t("errGeneric"))}).then(function(){$("place").disabled=false;$("place").textContent=t("placeBtn")});
+};
+$("okBtn").onclick=function(){$("ok").classList.remove("on")};
+$("loc").onclick=function(){alert(t("locAlert"))};
+render();load();
+</script>
+</body>
+</html>
