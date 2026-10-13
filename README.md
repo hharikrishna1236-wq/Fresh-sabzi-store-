@@ -4,12 +4,12 @@ Hindi / Hinglish / English vegetable store with Supabase backend and admin panel
 
 ## Structure
 - `index.html` – customer website (products, cart, Cash on Delivery orders)
-- `admin/index.html` – admin panel (open at `/admin/`)
+- `admin.html` – admin panel (open at `/admin.html` or `/admin`)
 - `supabase/migrations/` – database schema (already applied to project `fpoqgwhoqkfhrpzavyjy`)
 - `supabase/create_admin.sql` – makes your login an administrator
 
 ## Deploy
-Upload the whole folder to Netlify Drop, Vercel or Cloudflare Pages (static, no build step).
+Upload the whole folder (keep `index.html` = customer site, `admin.html` = admin; never rename admin.html to index.html) to Netlify Drop, Vercel or Cloudflare Pages (static, no build step).
 
 ## New Supabase project?
 1. Run `001_...sql`, then `002_...sql` in the SQL Editor.
